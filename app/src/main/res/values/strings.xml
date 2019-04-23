@@ -13,4 +13,13 @@
     <string name="consultas_m_dicas">Consultas Médicas</string>
     <string name="an_lises">Análises</string>
     <string name="sobre">Sobre</string>
+    <string name="agendas">Agenda</string>
+    <string name="sair">Sair</string>
+    <string name="title_activity_tratamentos">Tratamentos</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="novo_tratamento">Novo Tratamento</string>
+    <string name="ver_tratamentos">Ver Tratamentos</string>
+    <string name="title_activity_novo__tratamento">Novo Tratamento</string>
 </resources>

@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }else if (id == R.id.nav_Tratamentos) {
-            // Handle the camera action
+            Intent intent = new Intent(this, Tratamentos.class);
+            startActivity(intent);
         } else if (id == R.id.nav_Consultas) {
 
         } else if (id == R.id.nav_Analises) {
