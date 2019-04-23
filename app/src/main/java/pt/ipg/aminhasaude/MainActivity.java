@@ -1,5 +1,6 @@
 package pt.ipg.aminhasaude;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id == R.id.action_sair){
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -77,18 +80,16 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_Agenda){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_Tratamentos) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_Consultas) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_Analises) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_acerca) {
 
         }
 

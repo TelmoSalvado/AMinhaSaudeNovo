@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">AMinhaSaúde</string>
+    <string name="app_name">A Minha Saúde</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">A Minha Saúde</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="agenda">Agenda:</string>
     <string name="Nao_existem_dados">De momento não existem dados na sua agenda!</string>
+    <string name="Sair">Sair</string>
+    <string name="tratamentos">Tratamentos</string>
+    <string name="send">Acerca da Aplicação</string>
+    <string name="consultas_m_dicas">Consultas Médicas</string>
+    <string name="an_lises">Análises</string>
+    <string name="sobre">Sobre</string>
 </resources>
