@@ -4,4 +4,6 @@
     <color name="colorPrimaryDark">#B10037</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorButoes">#FF699B</color>
+    <color name="colorCancelar">#F80000</color>
+    <color name="colorValidar">#4CAF50</color>
 </resources>

@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class Novo_Tratamento extends AppCompatActivity {
 
@@ -19,15 +21,59 @@ public class Novo_Tratamento extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+    public void Guardar(View view){
+        EditText editTextmedicamento = (EditText) findViewById(R.id.EditTextMedicamento);
+        String medicamento = editTextmedicamento.getText().toString();
 
+        EditText editTextHora = (EditText) findViewById(R.id.editTextHoraComeco);
+        String hora = editTextHora.getText().toString();
+
+        EditText editTextHoraATomar = (EditText) findViewById(R.id.EditTextHorasAtomar);
+        String horaatomar = editTextHoraATomar.getText().toString();
+
+        EditText editTextDias = (EditText) findViewById(R.id.EditTextDias);
+        String dias = editTextDias.getText().toString();
+
+
+        EditText editTextDoenca = (EditText) findViewById(R.id.EditTextDoenca);
+        String doenca = editTextDoenca.getText().toString();
+
+        if (doenca.trim().length() == 0){
+            editTextDoenca.setError(getString(R.string.message_required));
+            editTextDoenca.requestFocus();
+            return;
+        }
+
+        if (medicamento.trim().length() == 0) {
+            editTextmedicamento.setError(getString(R.string.message_required));
+            editTextmedicamento.requestFocus();
+            return;
+        }
+        if (hora.trim().length()  == 0) {
+            editTextHora.setError(getString(R.string.message_required));
+            editTextHora.requestFocus();
+            return;
+        }
+        if (horaatomar.trim().length() == 0) {
+            editTextHoraATomar.setError(getString(R.string.message_required));
+            editTextHoraATomar.requestFocus();
+            return;
+        }
+        if ((dias.trim().length() == 0) )  {
+            editTextDias.setError(getString(R.string.message_required));
+            editTextDias.requestFocus();
+            return;
+        }
+
+
+        Toast.makeText(this, "Guardado com sucesso", Toast.LENGTH_SHORT).show();
+        finish();
+    }
+    public void Cancelar(View view){
+        Toast.makeText(this, "Cancelado", Toast.LENGTH_SHORT).show();
+        finish();
+    }
 }

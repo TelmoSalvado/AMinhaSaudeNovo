@@ -22,4 +22,12 @@
     <string name="novo_tratamento">Novo Tratamento</string>
     <string name="ver_tratamentos">Ver Tratamentos</string>
     <string name="title_activity_novo__tratamento">Novo Tratamento</string>
+    <string name="doen_a">Doença:</string>
+    <string name="medicamento">Medicamento:</string>
+    <string name="dias_a_tomar">Dias a tomar:</string>
+    <string name="hora_de_come_o">Hora de Começo:</string>
+    <string name="horas_a_tomar">Horas a tomar:</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="message_required">Campo Obrigatório!</string>
 </resources>
