@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".VerTratamentos"
+            android:label="@string/title_activity_ver_tratamentos"
+            android:parentActivityName=".Tratamentos"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.Tratamentos" />
+        </activity>
+        <activity
             android:name=".Novo_Tratamento"
             android:label="@string/title_activity_novo__tratamento"
             android:parentActivityName=".Tratamentos"

@@ -4,7 +4,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">A Minha Saúde</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Definições</string>
     <string name="agenda">Agenda:</string>
     <string name="Nao_existem_dados">De momento não existem dados na sua agenda!</string>
     <string name="Sair">Sair</string>
@@ -30,4 +30,8 @@
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
     <string name="message_required">Campo Obrigatório!</string>
+    <string name="title_activity_ver_tratamentos">Ver Tratamentos</string>
+    <string name="de_momento_n_o_existem_tratamentos">De momento não existem tratamentos!</string>
+    <string name="editar_tratamento">Editar Tratamento</string>
+    <string name="eliminar_tratamento">Eliminar Tratamento</string>
 </resources>
