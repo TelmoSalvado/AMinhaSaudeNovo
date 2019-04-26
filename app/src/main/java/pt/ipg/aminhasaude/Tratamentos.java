@@ -27,6 +27,7 @@ public class Tratamentos extends AppCompatActivity {
     }
 
     public void verTratamentos(View view){
-
+        Intent intent = new Intent(this, VerTratamentos.class);
+        startActivity(intent);
     }
 }

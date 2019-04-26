@@ -1,5 +1,6 @@
 package pt.ipg.aminhasaude;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -19,8 +20,14 @@ public class VerTratamentos extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+    public void Editar(View view){
+        Intent intent = new Intent(this, EditarTratamento.class);
+        startActivity(intent);
+    }
+    public void Eliminar(View view){
 
+    }
 }
