@@ -11,24 +11,23 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class ConsultasMedicas extends AppCompatActivity {
+public class VerConsultas extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consultas_medicas);
+        setContentView(R.layout.activity_ver_consultas);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-    public void Ver(View view){
-        Intent intent = new Intent(this, VerConsultas.class);
+    public void Editar(View view){
+        Intent intent = new Intent(this, EditarConsulta.class);
         startActivity(intent);
     }
-    public void Nova(View view){
-        Intent intent = new Intent(this, Nova_Consulta.class);
-        startActivity(intent);
+    public void Eliminar(View view){
+
     }
 }

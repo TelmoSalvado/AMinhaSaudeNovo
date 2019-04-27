@@ -50,4 +50,8 @@
     <string name="local_da_consulta">Local Da Consulta:</string>
     <string name="motivo_da_consulta">Motivo da Consulta</string>
     <string name="m_dico_opcional">Médico(Opcional):</string>
+    <string name="title_activity_ver_consultas">Ver Consultas</string>
+    <string name="editar_consulta">Editar Consulta</string>
+    <string name="eliminar_consulta">Eliminar Consulta</string>
+    <string name="title_activity_editar_consulta">Editar Consulta</string>
 </resources>
