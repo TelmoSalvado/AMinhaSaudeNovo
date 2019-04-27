@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Analises"
+            android:label="@string/title_activity_analises"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.MainActivity" />
+        </activity>
+        <activity
             android:name=".EliminarConsulta"
             android:label="@string/title_activity_eliminar_consulta"
             android:parentActivityName=".VerConsultas"
