@@ -87,7 +87,8 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(this, Tratamentos.class);
             startActivity(intent);
         } else if (id == R.id.nav_Consultas) {
-
+            Intent intent = new Intent(this, ConsultasMedicas.class);
+            startActivity(intent);
         } else if (id == R.id.nav_Analises) {
 
         } else if (id == R.id.nav_acerca) {

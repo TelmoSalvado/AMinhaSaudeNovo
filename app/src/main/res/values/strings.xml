@@ -40,4 +40,14 @@
     <string name="Cancelar">Cancelado</string>
     <string name="Guardar">Guardado com sucesso</string>
     <string name="eliminar">Eliminar</string>
+    <string name="title_activity_consultas_medicas">Consultas Médicas</string>
+    <string name="nova_consulta">Nova Consulta</string>
+    <string name="ver_consultas">Ver Consultas</string>
+    <string name="title_activity_novo_tratamento">Novo Tratamento</string>
+    <string name="title_activity_nova__consulta">Nova Consulta</string>
+    <string name="dia_da_consulta">Dia Da Consulta:</string>
+    <string name="hora_da_consulta">Hora da Consulta:</string>
+    <string name="local_da_consulta">Local Da Consulta:</string>
+    <string name="motivo_da_consulta">Motivo da Consulta</string>
+    <string name="m_dico_opcional">Médico(Opcional):</string>
 </resources>

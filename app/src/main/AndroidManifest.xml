@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Nova_Consulta"
+            android:label="@string/title_activity_nova__consulta"
+            android:parentActivityName=".ConsultasMedicas"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.ConsultasMedicas" />
+        </activity>
+        <activity
+            android:name=".ConsultasMedicas"
+            android:label="@string/title_activity_consultas_medicas"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.MainActivity" />
+        </activity>
+        <activity
             android:name=".EliminarTratamento"
             android:label="@string/title_activity_eliminar_tratamento"
             android:parentActivityName=".VerTratamentos"
