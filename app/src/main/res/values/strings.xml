@@ -54,4 +54,5 @@
     <string name="editar_consulta">Editar Consulta</string>
     <string name="eliminar_consulta">Eliminar Consulta</string>
     <string name="title_activity_editar_consulta">Editar Consulta</string>
+    <string name="title_activity_eliminar_consulta">Eliminar Consulta</string>
 </resources>
