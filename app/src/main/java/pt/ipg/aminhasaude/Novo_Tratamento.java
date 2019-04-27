@@ -69,11 +69,11 @@ public class Novo_Tratamento extends AppCompatActivity {
         }
 
 
-        Toast.makeText(this, "Guardado com sucesso", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.Guardar), Toast.LENGTH_SHORT).show();
         finish();
     }
     public void Cancelar(View view){
-        Toast.makeText(this, "Cancelado", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.Cancelar), Toast.LENGTH_SHORT).show();
         finish();
     }
 }

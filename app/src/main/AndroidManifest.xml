@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".EliminarTratamento"
+            android:label="@string/title_activity_eliminar_tratamento"
+            android:parentActivityName=".VerTratamentos"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.VerTratamentos" />
+        </activity>
+        <activity
             android:name=".EditarTratamento"
             android:label="@string/title_activity_editar_tratamento"
             android:parentActivityName=".VerTratamentos"

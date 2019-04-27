@@ -35,4 +35,9 @@
     <string name="editar_tratamento">Editar Tratamento</string>
     <string name="eliminar_tratamento">Eliminar Tratamento</string>
     <string name="title_activity_editar_tratamento">Editar Tratamento</string>
+    <string name="title_activity_eliminar_tratamento">Eliminar Tratamento</string>
+    <string name="Eliminar">Eliminado Com Sucesso</string>
+    <string name="Cancelar">Cancelado</string>
+    <string name="Guardar">Guardado com sucesso</string>
+    <string name="eliminar">Eliminar</string>
 </resources>
