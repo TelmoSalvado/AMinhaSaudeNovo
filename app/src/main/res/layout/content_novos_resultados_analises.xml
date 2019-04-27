@@ -25,7 +25,7 @@
                     android:id="@+id/editTextDataAnalises"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Data Das Análises"
+                    android:hint="@string/data_das_an_lises"
                     android:inputType="date" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -37,7 +37,7 @@
                     android:id="@+id/editTextAcucar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Açúcares"
+                    android:hint="@string/a_cares"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -49,7 +49,7 @@
                     android:id="@+id/editTextColestrol"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Colestrol"
+                    android:hint="@string/colestrol"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,7 +61,7 @@
                     android:id="@+id/editTextCreatinina"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Creatina"
+                    android:hint="@string/creatina"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +73,7 @@
                     android:id="@+id/editTextAcidoUrico"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ácido Urico"
+                    android:hint="@string/cido_urico"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -85,7 +85,7 @@
                     android:id="@+id/editTextUreia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Ureia"
+                    android:hint="@string/ureia"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 

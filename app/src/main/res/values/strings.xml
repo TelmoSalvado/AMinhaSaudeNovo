@@ -57,4 +57,13 @@
     <string name="title_activity_eliminar_consulta">Eliminar Consulta</string>
     <string name="title_activity_analises">Análises</string>
     <string name="title_activity_novos_resultados_analises">Novos Resultados Análises</string>
+    <string name="data_das_an_lises">Data Das Análises</string>
+    <string name="colestrol">Colestrol</string>
+    <string name="a_cares">Açúcares</string>
+    <string name="creatina">Creatina</string>
+    <string name="cido_urico">Ácido Urico</string>
+    <string name="ureia">Ureia</string>
+    <string name="title_activity_ver_analises">Ver Análises</string>
+    <string name="editar_an_lises">Editar Análises</string>
+    <string name="eliminar_an_lises">Eliminar Análises</string>
 </resources>

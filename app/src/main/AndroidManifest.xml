@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".VerAnalises"
+            android:label="@string/title_activity_ver_analises"
+            android:parentActivityName=".Analises"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.Analises" />
+        </activity>
+        <activity
             android:name=".NovosResultadosAnalises"
             android:label="@string/title_activity_novos_resultados_analises"
             android:parentActivityName=".Analises"

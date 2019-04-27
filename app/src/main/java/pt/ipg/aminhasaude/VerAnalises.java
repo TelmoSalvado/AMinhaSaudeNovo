@@ -11,24 +11,23 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class Analises extends AppCompatActivity {
+public class VerAnalises extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_analises);
+        setContentView(R.layout.activity_ver_analises);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-    public void Inserir(View view){
+    public void Editar(View view){
         Intent intent = new Intent(this, NovosResultadosAnalises.class);
         startActivity(intent);
     }
-    public void Ver(View view){
-        Intent intent = new Intent(this, VerAnalises.class);
-        startActivity(intent);
+    public void Eliminar(View view){
+
     }
 }
