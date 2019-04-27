@@ -66,4 +66,7 @@
     <string name="title_activity_ver_analises">Ver Análises</string>
     <string name="editar_an_lises">Editar Análises</string>
     <string name="eliminar_an_lises">Eliminar Análises</string>
+    <string name="title_activity_editar_analises">Editar Análises</string>
+    <string name="title_activity_eliminar_analises">Eliminar Análises</string>
+    <string name="title_activity_sobre">Sobre</string>
 </resources>

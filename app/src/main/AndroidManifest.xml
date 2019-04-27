@@ -10,6 +10,33 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Sobre"
+            android:label="@string/title_activity_sobre"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EliminarAnalises"
+            android:label="@string/title_activity_eliminar_analises"
+            android:parentActivityName=".VerAnalises"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.VerAnalises" />
+        </activity>
+        <activity
+            android:name=".EditarAnalises"
+            android:label="@string/title_activity_editar_analises"
+            android:parentActivityName=".VerAnalises"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="pt.ipg.aminhasaude.VerAnalises" />
+        </activity>
+        <activity
             android:name=".VerAnalises"
             android:label="@string/title_activity_ver_analises"
             android:parentActivityName=".Analises"
