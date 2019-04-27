@@ -10,7 +10,6 @@
     <string name="Sair">Sair</string>
     <string name="tratamentos">Tratamentos</string>
     <string name="send">Acerca da Aplicação</string>
-    <string name="consultas_m_dicas">Consultas Médicas</string>
     <string name="an_lises">Análises</string>
     <string name="sobre">Sobre</string>
     <string name="agendas">Agenda</string>
@@ -24,7 +23,6 @@
     <string name="title_activity_novo__tratamento">Novo Tratamento</string>
     <string name="doen_a">Doença:</string>
     <string name="medicamento">Medicamento:</string>
-    <string name="dias_a_tomar">Dias a tomar:</string>
     <string name="hora_de_come_o">Hora de Começo:</string>
     <string name="horas_a_tomar">Horas a tomar:</string>
     <string name="guardar">Guardar</string>
@@ -45,7 +43,6 @@
     <string name="ver_consultas">Ver Consultas</string>
     <string name="title_activity_novo_tratamento">Novo Tratamento</string>
     <string name="title_activity_nova__consulta">Nova Consulta</string>
-    <string name="dia_da_consulta">Dia Da Consulta:</string>
     <string name="hora_da_consulta">Hora da Consulta:</string>
     <string name="local_da_consulta">Local Da Consulta:</string>
     <string name="motivo_da_consulta">Motivo da Consulta</string>
@@ -66,7 +63,16 @@
     <string name="title_activity_ver_analises">Ver Análises</string>
     <string name="editar_an_lises">Editar Análises</string>
     <string name="eliminar_an_lises">Eliminar Análises</string>
-    <string name="title_activity_editar_analises">Editar Análises</string>
     <string name="title_activity_eliminar_analises">Eliminar Análises</string>
     <string name="title_activity_sobre">Sobre</string>
+    <string name="aplica_o_desenvolvida_p_r">Aplicação desenvolvida pôr:</string>
+    <string name="telmo_salvado">Telmo Salvado</string>
+    <string name="_1700712">1700712</string>
+    <string name="a_minha_sa_de">A minha Saúde</string>
+    <string name="Nao_existem_dados">De momento não existem dados na sua agenda!</string>
+    <string name="consultas_m_dicas">Consultas Médicas</string>
+    <string name="dia_da_consulta">Dia da Consulta:</string>
+    <string name="dias_a_tomar">Dias a tomar:</string>
+    <string name="programa_o_avan_ada_2018_2019">Programação Avançada 2018/2019</string>
+    <string name="title_activity_editar_analises">Editar Análises</string>
 </resources>
