@@ -28,11 +28,6 @@ public class NovosResultadosAnalises extends AppCompatActivity {
         finish();
     }
     public void Guardar(View view){
-        ValidarDados();
-        Toast.makeText(this, R.string.Guardar, Toast.LENGTH_SHORT).show();
-
-    }
-    public void ValidarDados() {
         EditText editTextDia = (EditText) findViewById(R.id.editTextDataAnalises);
         String diaAnalise = editTextDia.getText().toString();
 
@@ -83,5 +78,18 @@ public class NovosResultadosAnalises extends AppCompatActivity {
         }
 
         finish();
+
+        Toast.makeText(this, R.string.Guardar, Toast.LENGTH_SHORT).show();
+
     }
-}
+
+   /* public void ValidarResultadosInseridos(){
+        EditText editTextDia = (EditText) findViewById(R.id.editTextDataAnalises);
+        String diaAnalise = editTextDia.getText().toString();
+        int dias = Integer.parseInt(diaAnalise);
+        if(dias == 0){
+            editTextDia.setError(getString(R.string.message_required));
+            editTextDia.requestFocus();
+        }*/
+    }
+
