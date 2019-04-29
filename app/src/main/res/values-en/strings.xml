@@ -75,5 +75,6 @@
     <string name="ureia">Urea</string>
     <string name="ver_consultas">View Queries</string>
     <string name="ver_tratamentos">View Treatments</string>
-
+    <string name="Validar_data">Format DD/MM/YYYY</string>
+    <string name="validar_hora">Format HH:MM</string>
 </resources>

@@ -69,10 +69,11 @@
     <string name="telmo_salvado">Telmo Salvado</string>
     <string name="_1700712">1700712</string>
     <string name="a_minha_sa_de">A minha Saúde</string>
-
     <string name="consultas_m_dicas">Consultas Médicas</string>
     <string name="dia_da_consulta">Dia da Consulta:</string>
     <string name="dias_a_tomar">Dias a tomar:</string>
     <string name="programa_o_avan_ada_2018_2019">Programação Avançada 2018/2019</string>
     <string name="title_activity_editar_analises">Editar Análises</string>
+    <string name="Validar_data">Formato DD/MM/AAAA</string>
+    <string name="validar_hora">Formato HH:MM</string>
 </resources>

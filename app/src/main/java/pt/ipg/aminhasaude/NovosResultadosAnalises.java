@@ -23,11 +23,13 @@ public class NovosResultadosAnalises extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-    public void Cancelar(View view){
+
+    public void Cancelar(View view) {
         Toast.makeText(this, R.string.Cancelar, Toast.LENGTH_SHORT).show();
         finish();
     }
-    public void Guardar(View view){
+
+    public void Guardar(View view) {
         EditText editTextDia = (EditText) findViewById(R.id.editTextDataAnalises);
         String diaAnalise = editTextDia.getText().toString();
 
@@ -46,8 +48,8 @@ public class NovosResultadosAnalises extends AppCompatActivity {
         EditText editTextUreia = (EditText) findViewById(R.id.editTextUreia);
         String Ureia = editTextUreia.getText().toString();
 
-        if (diaAnalise.trim().length() == 0) {
-            editTextDia.setError(getString(R.string.message_required));
+        if (diaAnalise.length() != 10 || diaAnalise.charAt(2) != '/' || diaAnalise.charAt(5) != '/') {
+            editTextDia.setError(getString(R.string.Validar_data));
             editTextDia.requestFocus();
             return;
         }
@@ -78,18 +80,18 @@ public class NovosResultadosAnalises extends AppCompatActivity {
         }
 
         finish();
-
         Toast.makeText(this, R.string.Guardar, Toast.LENGTH_SHORT).show();
 
     }
 
-   /* public void ValidarResultadosInseridos(){
+    /*public void ValidarResultadosInseridos() {
         EditText editTextDia = (EditText) findViewById(R.id.editTextDataAnalises);
         String diaAnalise = editTextDia.getText().toString();
         int dias = Integer.parseInt(diaAnalise);
-        if(dias == 0){
+        if (dias > 1) {
             editTextDia.setError(getString(R.string.message_required));
             editTextDia.requestFocus();
-        }*/
-    }
-
+            return;
+        }
+    }*/
+}

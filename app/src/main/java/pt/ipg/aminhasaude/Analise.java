@@ -2,6 +2,7 @@ package pt.ipg.aminhasaude;
 
 public class Analise {
     public String getDia(){
+
         return Dia;
     }
     public void setDia(String Dia){
