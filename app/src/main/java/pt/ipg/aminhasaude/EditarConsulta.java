@@ -41,14 +41,14 @@ public class EditarConsulta extends AppCompatActivity {
         EditText editTextmedico = (EditText) findViewById(R.id.EditTextMedico);
         String Medico = editTextmedico.getText().toString();
 
-        if (dia.trim().length() == 0){
-            EditTextDia.setError(getString(R.string.message_required));
+        if (dia.length() != 10 || dia.charAt(2) != '/' || dia.charAt(5) != '/') {
+            EditTextDia.setError(getString(R.string.Validar_data));
             EditTextDia.requestFocus();
             return;
         }
 
-        if (hora.trim().length() == 0) {
-            editTextHora.setError(getString(R.string.message_required));
+        if (hora.length() != 5 || hora.charAt(2) != ':' ) {
+            editTextHora.setError(getString(R.string.validar_hora));
             editTextHora.requestFocus();
             return;
         }

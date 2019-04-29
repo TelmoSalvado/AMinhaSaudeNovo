@@ -52,13 +52,13 @@ public class Novo_Tratamento extends AppCompatActivity {
             editTextmedicamento.requestFocus();
             return;
         }
-        if (hora.trim().length()  == 0) {
-            editTextHora.setError(getString(R.string.message_required));
+        if (hora.length() != 5 || hora.charAt(2) != ':' ) {
+            editTextHora.setError(getString(R.string.validar_hora));
             editTextHora.requestFocus();
             return;
         }
-        if (horaatomar.trim().length() == 0) {
-            editTextHoraATomar.setError(getString(R.string.message_required));
+        if (horaatomar.length() != 5 || horaatomar.charAt(2) != ':' ) {
+            editTextHoraATomar.setError(getString(R.string.validar_hora));
             editTextHoraATomar.requestFocus();
             return;
         }

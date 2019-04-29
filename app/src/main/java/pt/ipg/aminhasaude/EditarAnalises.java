@@ -52,8 +52,8 @@ public class EditarAnalises extends AppCompatActivity {
         EditText editTextUreia = (EditText) findViewById(R.id.editTextUreia);
         String Ureia = editTextUreia.getText().toString();
 
-        if (diaAnalise.trim().length() == 0) {
-            editTextDia.setError(getString(R.string.message_required));
+        if (diaAnalise.length() != 10 || diaAnalise.charAt(2) != '/' || diaAnalise.charAt(5) != '/') {
+            editTextDia.setError(getString(R.string.Validar_data));
             editTextDia.requestFocus();
             return;
         }
