@@ -15,6 +15,8 @@ public class BdTabelaAnalises implements BaseColumns {
     public static final String Ureia = "Ureia";
     private SQLiteDatabase db;
 
+    public static final String[] TODAS_COLUNAS = new String[] { _ID, Dia, Diabetes, Colestrol, Creatina, AcidoUrico, Ureia };
+
     public BdTabelaAnalises(SQLiteDatabase db) {
         this.db = db;
     }

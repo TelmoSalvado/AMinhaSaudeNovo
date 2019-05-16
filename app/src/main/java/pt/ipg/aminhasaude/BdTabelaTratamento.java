@@ -14,6 +14,8 @@ public class BdTabelaTratamento implements BaseColumns {
     public static final String Dias = "Dias";
     private SQLiteDatabase db;
 
+    public static final String[] TODAS_COLUNAS = new String[] { _ID, Nome_Medicamento, Nome_Doenca, HoraDeComeco, HoraATomar, Dias };
+
     public BdTabelaTratamento(SQLiteDatabase db) {
         this.db = db;
     }

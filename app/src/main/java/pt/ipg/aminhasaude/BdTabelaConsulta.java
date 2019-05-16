@@ -14,6 +14,8 @@ public class BdTabelaConsulta implements BaseColumns {
     public static final String Medico = "Medico";
     private SQLiteDatabase db;
 
+    public static final String[] TODAS_COLUNAS = new String[] { _ID, Dia, Hora, Local, Motivo, Medico };
+
     public BdTabelaConsulta(SQLiteDatabase db) {
         this.db = db;
     }

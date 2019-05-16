@@ -88,7 +88,7 @@ public class Consulta {
 
         consulta.setId(id);
         consulta.setdia(Dia);
-        consulta.setdia(Hora);
+        consulta.setHora(Hora);
         consulta.setlocal(Local);
         consulta.setmotivo(Motivo);
         consulta.setMedico(Medico);
