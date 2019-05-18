@@ -56,45 +56,54 @@ public class ExampleInstrumentedTest {
 
         //Teste read Tratamento (cRud)
         Cursor cursorTratamento = getTratamento(tabelaTratamento);
-        assertNotEquals(0,cursorTratamento.getCount());
+        assertNotEquals(1,cursorTratamento.getCount());
 
         //Teste create/read categorias (CRud)
-        String nome = "Ben-u-ron";
+        String medicamento = "Ben-u-ron";
+        String hora = "18:05";
+        String HoraATomar = "8";
+        int Dias = 5;
+        String Doenca = "Gripe";
 
-        long idBenURon = criaTratamento(tabelaTratamento,nome);
+        long id = criaTratamento(tabelaTratamento,medicamento,hora,HoraATomar,Dias,Doenca);
+
 
         cursorTratamento = getTratamento(tabelaTratamento);
         assertEquals(1,cursorTratamento.getCount());
 
-        Tratamento tratamento = getTratamentoComId(cursorTratamento,idBenURon);
+        Tratamento tratamento = getTratamentoComId(cursorTratamento,id);
 
-        assertEquals(nome, tratamento.getMedicamento());
+        assertEquals(medicamento, tratamento.getMedicamento());
 
-        nome = "Bruffn";
-        long idBruffen = criaTratamento(tabelaTratamento, nome);
+       medicamento = "Bruffn";
+       hora = "13:15";
+       HoraATomar = "6";
+       Dias = 5;
+       Doenca = "Dores Musculares";
+        id = criaTratamento(tabelaTratamento, medicamento, hora, HoraATomar, Dias,Doenca);
 
         cursorTratamento = getTratamento(tabelaTratamento);
         assertEquals(2, cursorTratamento.getCount());
 
-        tratamento = getTratamentoComId(cursorTratamento,idBruffen);
+        tratamento = getTratamentoComId(cursorTratamento,id);
 
-        assertEquals(nome,tratamento.getMedicamento());
+        assertEquals(medicamento,tratamento.getMedicamento());
 
         // Teste Update/Read tratamento (cRUd)
-        nome = "Bruffen";
-        tratamento.setMedicamento(nome);
+        medicamento = "Bruffen";
+        tratamento.setMedicamento(medicamento);
 
-        int registosAlterados = tabelaTratamento.update(tratamento.getContentValues(),BdTabelaTratamento._ID + "=?", new String[]{String.valueOf(idBruffen)});
+        int registosAlterados = tabelaTratamento.update(tratamento.getContentValues(),BdTabelaTratamento._ID + "=?", new String[]{String.valueOf(id)});
 
         assertEquals(1,registosAlterados);
 
         cursorTratamento = getTratamento(tabelaTratamento);
-        tratamento = getTratamentoComId(cursorTratamento, idBruffen);
+        tratamento = getTratamentoComId(cursorTratamento, id);
 
-        assertEquals(nome, tratamento.getMedicamento());
+        assertEquals(medicamento, tratamento.getMedicamento());
 
         // Teste Create/Delete/Read Tratamento (CRuD)
-        long id = criaTratamento(tabelaTratamento,"TESTE");
+        id = criaTratamento(tabelaTratamento,"Plavix", "07:00","24",365,"Coração");
         cursorTratamento = getTratamento(tabelaTratamento);
         assertEquals(3,cursorTratamento.getCount());
 
@@ -102,8 +111,8 @@ public class ExampleInstrumentedTest {
         cursorTratamento = getTratamento(tabelaTratamento);
         assertEquals(2,cursorTratamento.getCount());
 
-        getTratamentoComId(cursorTratamento,idBenURon);
-        getTratamentoComId(cursorTratamento, idBruffen);
+        getTratamentoComId(cursorTratamento,id);
+
 
 
         //Teste read Anlises(cRud)
@@ -119,11 +128,11 @@ public class ExampleInstrumentedTest {
         int AcidoUrico = 100;
         int Ureia = 25;
 
-        id = criaAnalises(tabelaAnalises,dia, Diabetess, Colestrol, Creatina, AcidoUrico, Ureia);
+        id = criaAnalises(tabelaAnalises, dia, Diabetess, Colestrol, Creatina, AcidoUrico, Ureia);
         cursorAnlises = getAnalises(tabelaAnalises);
         assertEquals(1,cursorAnlises.getCount());
 
-        Analise analise = getAnlisesComID(cursorAnlises,id);
+        Analise analise = getAnliseComID(cursorAnlises,id);
         assertEquals(dia, analise.getDia());
         assertEquals(Diabetess, analise.getdiabetes());
         assertEquals(Colestrol, analise.getColestrol());
@@ -132,7 +141,7 @@ public class ExampleInstrumentedTest {
         assertEquals(Ureia, analise.getUreia());
 
         //Teste read/update analises (cRUd)
-        analise = getAnlisesComID(cursorAnlises, id);
+        analise = getAnliseComID(cursorAnlises, id);
         dia = "02/05/2018";
 
         analise.setDia(dia);
@@ -141,7 +150,7 @@ public class ExampleInstrumentedTest {
 
         cursorAnlises = getAnalises(tabelaAnalises);
 
-        analise = getAnlisesComID(cursorAnlises,id);
+        analise = getAnliseComID(cursorAnlises,id);
         assertEquals(dia, analise.getDia());
 
         // Teste read/ delete Analises (cRuD)
@@ -154,12 +163,12 @@ public class ExampleInstrumentedTest {
         assertEquals(0, cursorConsulta.getCount());
         // Teste create/read Consulta (CRud)
         String Dia = "20/05/2019";
-        String hora = "14:00";
+        String Hora = "14:00";
         String local = "Guarda";
         String motivo = "Consulta de Rotina";
         String medico = "João";
 
-        id = criaConsulta(tabelaConsulta, Dia, hora, local, motivo, medico);
+        id = criaConsulta(tabelaConsulta, Dia, Hora, local, motivo, medico);
         cursorConsulta = getConsulta(tabelaConsulta);
         assertEquals(1,cursorConsulta);
 
@@ -191,9 +200,13 @@ public class ExampleInstrumentedTest {
 
     }
   
-    private long criaTratamento(BdTabelaTratamento tabelaTratamento, String nome){
+    private long criaTratamento(BdTabelaTratamento tabelaTratamento, String medicamento, String hora, String HoraATomar, int Dias, String Doenca){
        Tratamento tratamento = new Tratamento();
-       tratamento.setMedicamento(nome);
+       tratamento.setMedicamento(medicamento);
+       tratamento.setHora(hora);
+       tratamento.setHoraATomar(HoraATomar);
+       tratamento.setdias(Dias);
+       tratamento.setDoenca(Doenca);
 
        long id = tabelaTratamento.insert(tratamento.getContentValues());
        assertNotEquals(-1, id);
@@ -230,7 +243,7 @@ public class ExampleInstrumentedTest {
         analises.setUreia(Ureia);
 
         long id = tabelaAnalises.insert(analises.getContentValues());
-        assertEquals(-1, id);
+        assertNotEquals(-1, id);
 
         return id;
     }
@@ -239,7 +252,7 @@ public class ExampleInstrumentedTest {
         return tabelaAnalises.query(BdTabelaAnalises.TODAS_COLUNAS,null,null,null,null,null);
     }
 
-    private Analise getAnlisesComID(Cursor cursor, long id) {
+    private Analise getAnliseComID(Cursor cursor, long id) {
         Analise analise = null;
 
         while (cursor.moveToNext()) {
