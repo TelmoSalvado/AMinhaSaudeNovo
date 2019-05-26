@@ -77,4 +77,9 @@
     <string name="ver_tratamentos">View Treatments</string>
     <string name="Validar_data">Format DD/MM/YYYY</string>
     <string name="validar_hora">Format HH:MM</string>
+    <string name="medicamento_bruffen">Medicamento: Bruffen</string>
+    <string name="hora_de_come_o_15_45">Hora De Começo: 15:45</string>
+    <string name="hora_a_tomar_6h">Hora a Tomar: 6h</string>
+    <string name="dias_5">Dias: 5</string>
+    <string name="doen_a_gripe">Doença: Gripe</string>
 </resources>

@@ -76,4 +76,9 @@
     <string name="title_activity_editar_analises">Editar Análises</string>
     <string name="Validar_data">Formato DD/MM/AAAA</string>
     <string name="validar_hora">Formato HH:MM</string>
+    <string name="medicamento_bruffen">Medicamento: Bruffen</string>
+    <string name="hora_de_come_o_15_45">Hora De Começo: 15:45</string>
+    <string name="hora_a_tomar_6h">Hora a Tomar: 6h</string>
+    <string name="dias_5">Dias: 5</string>
+    <string name="doen_a_gripe">Doença: Gripe</string>
 </resources>

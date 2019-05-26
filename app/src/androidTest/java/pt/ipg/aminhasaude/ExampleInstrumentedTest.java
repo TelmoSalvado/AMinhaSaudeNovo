@@ -56,7 +56,7 @@ public class ExampleInstrumentedTest {
 
         //Teste read Tratamento (cRud)
         Cursor cursorTratamento = getTratamento(tabelaTratamento);
-        assertNotEquals(1,cursorTratamento.getCount());
+        assertEquals(0,cursorTratamento.getCount());
 
         //Teste create/read categorias (CRud)
         String medicamento = "Ben-u-ron";
@@ -74,6 +74,10 @@ public class ExampleInstrumentedTest {
         Tratamento tratamento = getTratamentoComId(cursorTratamento,id);
 
         assertEquals(medicamento, tratamento.getMedicamento());
+        assertEquals(hora, tratamento.getHora());
+        assertEquals(HoraATomar,tratamento.getHoraATomar());
+        assertEquals(Dias, tratamento.getdias());
+        assertEquals(Doenca, tratamento.getDoenca());
 
        medicamento = "Bruffn";
        hora = "13:15";
@@ -88,6 +92,10 @@ public class ExampleInstrumentedTest {
         tratamento = getTratamentoComId(cursorTratamento,id);
 
         assertEquals(medicamento,tratamento.getMedicamento());
+        assertEquals(hora, tratamento.getHora());
+        assertEquals(HoraATomar,tratamento.getHoraATomar());
+        assertEquals(Dias, tratamento.getdias());
+        assertEquals(Doenca, tratamento.getDoenca());
 
         // Teste Update/Read tratamento (cRUd)
         medicamento = "Bruffen";
