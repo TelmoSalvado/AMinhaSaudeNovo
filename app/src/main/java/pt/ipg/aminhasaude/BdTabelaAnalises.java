@@ -26,11 +26,11 @@ public class BdTabelaAnalises implements BaseColumns {
                 "CREATE TABLE " + Nome_Tabela + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         Dia + " TEXT NOT NULL, " +
-                        Diabetes + " INTERGER NOT NULL, " +
-                        Colestrol + " INTERGER NOT NULL, " +
-                        Creatina + " INTERGER NOT NULL, " +
-                        AcidoUrico + " INTERGER NOT NULL, " +
-                        Ureia + " INTERGER NOT NULL " +
+                        Diabetes + " DOUBLE NOT NULL, " +
+                        Colestrol + " DOUBLE NOT NULL, " +
+                        Creatina + " DOUBLE NOT NULL, " +
+                        AcidoUrico + " DOUBLE NOT NULL, " +
+                        Ureia + " DOUBLE NOT NULL " +
                         ")"
         );
     }

@@ -131,26 +131,26 @@ public class ExampleInstrumentedTest {
 
         //Teste create/read
         String dia = "2/08/2019";
-        int Diabetess = 90;
-        int Colestrol = 150;
-        int Creatina = 100;
-        int AcidoUrico = 100;
-        int Ureia = 25;
+        double Diabetes = 90;
+        double Colestrol = 150;
+        double Creatina = 100;
+        double AcidoUrico = 100;
+        double Ureia = 25;
 
-        id = criaAnalises(tabelaAnalises, dia, Diabetess, Colestrol, Creatina, AcidoUrico, Ureia);
+        id = criaAnalises(tabelaAnalises, dia, Diabetes, Colestrol, Creatina, AcidoUrico, Ureia);
         cursorAnlises = getAnalises(tabelaAnalises);
         assertEquals(1,cursorAnlises.getCount());
 
         Analise analise = getAnliseComID(cursorAnlises,id);
         assertEquals(dia, analise.getDia());
-        assertEquals(Diabetess, analise.getdiabetes());
-        assertEquals(Colestrol, analise.getColestrol());
-        assertEquals(Creatina, analise.getCreatina());
-        assertEquals(AcidoUrico, analise.getAcidoUrico());
-        assertEquals(Ureia, analise.getUreia());
+        assertEquals(Diabetes, analise.getdiabetes(), 0.01);
+        assertEquals(Colestrol, analise.getColestrol(), 0.01);
+        assertEquals(Creatina, analise.getCreatina(), 0.01);
+        assertEquals(AcidoUrico, analise.getAcidoUrico(), 0.01);
+        assertEquals(Ureia, analise.getUreia(), 0.01);
 
         //Teste read/update analises (cRUd)
-        //analise = getAnliseComID(cursorAnlises, id);
+
         dia = "02/05/2018";
         analise.setDia(dia);
 
@@ -191,13 +191,16 @@ public class ExampleInstrumentedTest {
         Dia = "21/05/2019";
         local = "Castelo Branco";
 
+        consulta.setdia(Dia);
+        consulta.setlocal(local);
+
         tabelaConsulta.update(consulta.getContentValues(), BdTabelaConsulta._ID + "=?", new String[]{String.valueOf(id)});
 
         cursorConsulta = getConsulta(tabelaConsulta);
 
         consulta = getConsultaComID(cursorConsulta, id);
-//        assertEquals(Dia, consulta.getdia());
-  //      assertEquals(local, consulta.getlocal());
+        assertEquals(Dia, consulta.getdia());
+        assertEquals(local, consulta.getlocal());
 
         // Teste read/delete (cRuD)
 
@@ -239,7 +242,7 @@ public class ExampleInstrumentedTest {
 
         return tratamento;
     }
-    private long criaAnalises(BdTabelaAnalises tabelaAnalises, String Dia, int Diabetes, int Colestrol, int Creatina, int AcidoUrico, int Ureia){
+    private long criaAnalises(BdTabelaAnalises tabelaAnalises, String Dia, double Diabetes, double Colestrol, double Creatina, double AcidoUrico, double Ureia){
         Analise analises = new Analise();
 
         analises.setDia(Dia);

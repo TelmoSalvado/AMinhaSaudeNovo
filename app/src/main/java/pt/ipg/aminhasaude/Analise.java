@@ -21,45 +21,45 @@ public class Analise {
     }
     private String Dia;
 
-    public int getdiabetes(){
+    public double getdiabetes(){
         return diabetes;
     }
-    public void setdiabetes(int diabetes){
+    public void setdiabetes(double diabetes){
         this.diabetes = diabetes;
     }
-    private int diabetes;
+    private double diabetes;
 
-    public int getColestrol(){
+    public double getColestrol(){
         return Colestrol;
     }
-    public void setColestrol(int Colestrol){
+    public void setColestrol(double Colestrol){
         this.Colestrol = Colestrol;
     }
-    private int Colestrol;
+    private double Colestrol;
 
-    public int getCreatina(){
+    public double getCreatina(){
         return Creatina;
     }
-    public void setCreatina(int Creatina){
+    public void setCreatina(double Creatina){
         this.Creatina = Creatina;
     }
-    private int Creatina;
+    private double Creatina;
 
-    public int getAcidoUrico(){
+    public double getAcidoUrico(){
         return AcidoUrico;
     }
-    public void setAcidoUrico(int AcidoUrico){
+    public void setAcidoUrico(double AcidoUrico){
         this.AcidoUrico = AcidoUrico;
     }
-    private int AcidoUrico;
+    private double AcidoUrico;
 
-    public int getUreia(){
+    public double getUreia(){
         return Ureia;
     }
-    public void setUreia(int Ureia){
+    public void setUreia(double Ureia){
         this.Ureia = Ureia;
     }
-    private int Ureia;
+    private double Ureia;
     private long id;
 
     public ContentValues getContentValues() {
@@ -85,11 +85,11 @@ public class Analise {
         String Dia = cursor.getString(
                 cursor.getColumnIndex(BdTabelaAnalises.Dia)
         );
-        Integer Diabetes = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Diabetes));
-        Integer Colestrol = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Colestrol));
-        Integer Creatina = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Creatina));
-        Integer AcidoUrico = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.AcidoUrico));
-        Integer Ureia = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Ureia));
+        double Diabetes = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Diabetes));
+        double Colestrol = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Colestrol));
+        double Creatina = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Creatina));
+        double AcidoUrico = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.AcidoUrico));
+        double Ureia = cursor.getInt(cursor.getColumnIndex(BdTabelaAnalises.Ureia));
 
         analise.setId(id);
         analise.setDia(Dia);

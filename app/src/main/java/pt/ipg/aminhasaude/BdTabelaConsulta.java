@@ -25,10 +25,10 @@ public class BdTabelaConsulta implements BaseColumns {
                 "CREATE TABLE " + Nome_Tabela + "(" +
                         _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         Dia + " TEXT NOT NULL, " +
-                        Hora + " INTERGER NOT NULL, " +
-                        Local + " INTERGER NOT NULL, " +
-                        Motivo + " INTERGER NOT NULL, " +
-                        Medico + " INTERGER NOT NULL " +
+                        Hora + " TEXT NOT NULL, " +
+                        Local + " TEXT NOT NULL, " +
+                        Motivo + " TEXT NOT NULL, " +
+                        Medico + " TEXT NOT NULL " +
                         ")"
         );
     }
