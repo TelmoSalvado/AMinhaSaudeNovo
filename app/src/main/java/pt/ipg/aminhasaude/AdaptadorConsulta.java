@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,15 +45,68 @@ public class AdaptadorConsulta extends RecyclerView.Adapter<AdaptadorConsulta.Vi
         return cursor.getCount();
     }
 
-    public class ViewHolderConsulta extends RecyclerView.ViewHolder {
+    public Consulta getConsultaSelecionado(){
+        if(ViewHolderConsultaSelecionado == null) return null;
+
+        return ViewHolderConsultaSelecionado.consulta;
+    }
+
+    private static  ViewHolderConsulta ViewHolderConsultaSelecionado = null;
+
+    public class ViewHolderConsulta extends RecyclerView.ViewHolder implements View.OnClickListener{
+
+        private TextView textViewDia;
+        private TextView textViewHora;
+        private TextView textViewLocal;
+        private TextView textViewMotivo;
+        private TextView textViewMedico;
+
         private Consulta consulta;
+
         public ViewHolderConsulta(@NonNull View itemView) {
             super(itemView);
+
+            textViewDia = (TextView) itemView.findViewById(R.id.textViewDia);
+            textViewHora = (TextView)itemView.findViewById(R.id.textViewHora);
+            textViewLocal = (TextView)itemView.findViewById(R.id.textViewLocal);
+            textViewMotivo = (TextView)itemView.findViewById(R.id.textViewMotivo);
+            textViewMedico = (TextView)itemView.findViewById(R.id.textViewMédico);
+
+            itemView.setOnClickListener(this);
         }
 
-        public void setConsulta(Consulta consulta){this.consulta = consulta;}
+        public void setConsulta(Consulta consulta){
+            this.consulta = consulta;
+
+            textViewDia.setText(consulta.getdia());
+            textViewHora.setText(consulta.getHora());
+            textViewLocal.setText(consulta.getlocal());
+            textViewMotivo.setText(consulta.getmotivo());
+            textViewMedico.setText(consulta.getMedico());
+        }
+        private void desSeleciona() {
+            itemView.setBackgroundResource(android.R.color.white);
+        }
+
+        private void seleciona() {
+            itemView.setBackgroundResource(android.R.color.holo_red_dark);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(ViewHolderConsultaSelecionado != null){
+                ViewHolderConsultaSelecionado.desSeleciona();
+            }
+
+            ViewHolderConsultaSelecionado = this;
+
+            ((VerConsultas) context).atualizaOpcoesMenu();
+
+            seleciona();
+        }
+        }
     }
 
 
 
-}
+
