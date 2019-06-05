@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.provider.BaseColumns;
 
 public class BdTabelaTratamento implements BaseColumns {
+
     public static final String Nome_Tabela = "Tratamento";
     public static final String Nome_Medicamento = "Medicamento";
     public static final String Nome_Doenca = "Doenca";
@@ -35,6 +36,7 @@ public class BdTabelaTratamento implements BaseColumns {
 
     }
     public Cursor query(String[] columns, String selection, String[] selectionArg, String groupby, String having, String orderBy) {
+
         return  db.query(Nome_Tabela, columns, selection, selectionArg, groupby, having, orderBy);
     }
 

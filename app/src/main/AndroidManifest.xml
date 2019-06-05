@@ -163,6 +163,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:authorities="pt.ipg.aminhasaude"
+            android:name=".AMinhaSaudeContentProvider"
+            android:exported="false" />
     </application>
 
 </manifest>

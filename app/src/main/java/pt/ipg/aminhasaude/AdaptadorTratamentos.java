@@ -3,8 +3,9 @@ package pt.ipg.aminhasaude;
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,12 +45,66 @@ public class AdaptadorTratamentos extends RecyclerView.Adapter<AdaptadorTratamen
        return cursor.getCount();
     }
 
-    public class ViewHolderTratamento extends RecyclerView.ViewHolder {
+    public Tratamento getTratamentoSelecionado(){
+        if(ViewHolderTratamentoSelecionado == null) return null;
+
+        return ViewHolderTratamentoSelecionado.tratamento;
+    }
+
+    private static ViewHolderTratamento ViewHolderTratamentoSelecionado = null;
+
+    /**
+     *
+     */
+    public class ViewHolderTratamento extends RecyclerView.ViewHolder implements View.OnClickListener{
+        private TextView textViewMedicamento;
+        private TextView textViewHora;
+        private TextView textViewHoraATomar;
+        private TextView textViewDias;
+        private TextView textViewDoenca;
+
         private Tratamento tratamento;
-        public ViewHolderTratamento(@NonNull View itemView) {
+
+        public ViewHolderTratamento(@NonNull View itemView){
             super(itemView);
+            textViewMedicamento = (TextView) itemView.findViewById(R.id.textViewMedicamento);
+            textViewHora = (TextView)itemView.findViewById(R.id.textViewHora);
+            textViewHoraATomar = (TextView)itemView.findViewById(R.id.textViewHoraTomar);
+            textViewDias = (TextView)itemView.findViewById(R.id.textViewDias);
+            textViewDoenca = (TextView)itemView.findViewById(R.id.textViewDoenca);
+
+            itemView.setOnClickListener(this);
         }
 
-        public void setTratamento(Tratamento tratamento){this.tratamento = tratamento;}
+        public void setTratamento(Tratamento tratamento){
+            this.tratamento = tratamento;
+
+            textViewMedicamento.setText(tratamento.getMedicamento());
+            textViewHora.setText(tratamento.getHora());
+            textViewHoraATomar.setText(tratamento.getHoraATomar());
+            textViewDias.setText(String.valueOf(tratamento.getdias()));
+            textViewDoenca.setText(tratamento.getDoenca());
+        }
+        private void desSeleciona() {
+            itemView.setBackgroundResource(android.R.color.white);
+        }
+
+        private void seleciona() {
+            itemView.setBackgroundResource(android.R.color.holo_red_dark);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if(ViewHolderTratamentoSelecionado != null){
+                ViewHolderTratamentoSelecionado.desSeleciona();
+            }
+
+            ViewHolderTratamentoSelecionado = this;
+
+            ((VerTratamentos) context).atualizaOpcoesMenu();
+
+            seleciona();
+        }
     }
 }
+
