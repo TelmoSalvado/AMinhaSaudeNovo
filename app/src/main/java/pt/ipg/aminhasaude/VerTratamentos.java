@@ -21,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class VerTratamentos extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    public static final String ID_TRATAMENTO = "ID_TRATAMENTO";
     private static final int ID_CURSO_LOADER_TRATAMENTOS = 0;
 
     private RecyclerView recyclerViewTratamentos;
@@ -84,10 +85,20 @@ public class VerTratamentos extends AppCompatActivity implements LoaderManager.L
 
             return true;
         } else if (id == R.id.action_alterar) {
-            Toast.makeText(this, "Alterar", Toast.LENGTH_SHORT).show();
+          Intent intent = new Intent(this, EditarTratamento.class);
+          intent.putExtra(ID_TRATAMENTO, adaptadorTratamentos.getTratamentoSelecionado().getId());
+
+          startActivity(intent);
+
+          Toast.makeText(this, "Alterar", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_eliminar) {
-            Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show();
+          Intent intent = new Intent(this, EliminarTratamento.class);
+          intent.putExtra(ID_TRATAMENTO, adaptadorTratamentos.getTratamentoSelecionado().getId());
+
+          startActivity(intent);
+
+          Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show();
             return true;
         }
 
