@@ -1,18 +1,32 @@
 package pt.ipg.aminhasaude;
 
+import android.database.Cursor;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class NovosResultadosAnalises extends AppCompatActivity {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
+
+import com.google.android.material.snackbar.Snackbar;
+
+public class NovosResultadosAnalises extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+
+    private static final int ID_CURSO_LOADER_ANALISES = 0;
+
+    private EditText textInputLayoutDia;
+    private EditText textInputLayoutAcucar;
+    private EditText textInputLayoutColestrol;
+    private EditText textInputLayoutCreatina;
+    private EditText textInputLayoutAcidoUrico;
+    private EditText textInputLayoutUreia;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +34,15 @@ public class NovosResultadosAnalises extends AppCompatActivity {
         setContentView(R.layout.activity_novos_resultados_analises);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        getSupportLoaderManager().initLoader(ID_CURSO_LOADER_ANALISES, null, this);
+        textInputLayoutDia = (EditText) findViewById(R.id.editTextDataAnalises);
+        textInputLayoutAcucar = (EditText) findViewById(R.id.editTextAcucar);
+        textInputLayoutColestrol = (EditText) findViewById(R.id.editTextColestrol);
+        textInputLayoutCreatina = (EditText) findViewById(R.id.editTextCreatinina);
+        textInputLayoutAcidoUrico = (EditText) findViewById(R.id.editTextAcidoUrico);
+        textInputLayoutUreia = (EditText) findViewById(R.id.editTextUreia);
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -30,68 +53,112 @@ public class NovosResultadosAnalises extends AppCompatActivity {
     }
 
     public void Guardar(View view) {
-        EditText editTextDia = (EditText) findViewById(R.id.editTextDataAnalises);
-        String diaAnalise = editTextDia.getText().toString();
+        String diaAnalise = textInputLayoutDia.getText().toString();
 
-        EditText editTextDiabetes = (EditText) findViewById(R.id.editTextAcucar);
-        String diabetes = editTextDiabetes.getText().toString();
+        String diabetes = textInputLayoutAcucar.getText().toString();
+        double Diabetes;
 
-        EditText editTextColestrol = (EditText) findViewById(R.id.editTextColestrol);
-        String Colestrol = editTextColestrol.getText().toString();
+        String Colestrol = textInputLayoutColestrol.getText().toString();
+        double colestrol;
 
-        EditText editTextCreatina = (EditText) findViewById(R.id.editTextCreatinina);
-        String Creatina = editTextCreatina.getText().toString();
+        String Creatina = textInputLayoutCreatina.getText().toString();
+        double creatina;
 
-        EditText editTextAcido = (EditText) findViewById(R.id.editTextAcidoUrico);
-        String AcidoUrico = editTextAcido.getText().toString();
+        String AcidoUrico = textInputLayoutAcidoUrico.getText().toString();
+        double acidoUrico;
 
-        EditText editTextUreia = (EditText) findViewById(R.id.editTextUreia);
-        String Ureia = editTextUreia.getText().toString();
+        String Ureia = textInputLayoutUreia.getText().toString();
+        double ureia;
 
         if (diaAnalise.length() != 10 || diaAnalise.charAt(2) != '/' || diaAnalise.charAt(5) != '/') {
-            editTextDia.setError(getString(R.string.Validar_data));
-            editTextDia.requestFocus();
+            textInputLayoutDia.setError(getString(R.string.Validar_data));
+            textInputLayoutDia.requestFocus();
             return;
         }
         if (diabetes.trim().length() == 0) {
-            editTextDiabetes.setError(getString(R.string.message_required));
-            editTextDiabetes.requestFocus();
+            textInputLayoutAcucar.setError(getString(R.string.message_required));
+            textInputLayoutAcucar.requestFocus();
             return;
         }
         if (Colestrol.trim().length() == 0) {
-            editTextColestrol.setError(getString(R.string.message_required));
-            editTextColestrol.requestFocus();
+            textInputLayoutColestrol.setError(getString(R.string.message_required));
+            textInputLayoutColestrol.requestFocus();
             return;
         }
         if (Creatina.trim().length() == 0) {
-            editTextCreatina.setError(getString(R.string.message_required));
-            editTextCreatina.requestFocus();
+            textInputLayoutCreatina.setError(getString(R.string.message_required));
+            textInputLayoutCreatina.requestFocus();
             return;
         }
         if (AcidoUrico.trim().length() == 0) {
-            editTextAcido.setError(getString(R.string.message_required));
-            editTextAcido.requestFocus();
+            textInputLayoutAcidoUrico.setError(getString(R.string.message_required));
+            textInputLayoutAcidoUrico.requestFocus();
             return;
         }
         if (Ureia.trim().length() == 0) {
-            editTextUreia.setError(getString(R.string.message_required));
-            editTextUreia.requestFocus();
+            textInputLayoutUreia.setError(getString(R.string.message_required));
+            textInputLayoutUreia.requestFocus();
             return;
         }
+        try{
+            Diabetes = Double.parseDouble(diabetes);
+            colestrol = Double.parseDouble(Colestrol);
+            creatina = Double.parseDouble(Creatina);
+            acidoUrico = Double.parseDouble(AcidoUrico);
+            ureia = Double.parseDouble(Ureia);
+        }catch (NumberFormatException e){
+            return;
+        }
+        Analise analise = new Analise();
 
-        finish();
-        Toast.makeText(this, R.string.Guardar, Toast.LENGTH_SHORT).show();
+        analise.setDia(diaAnalise);
+        analise.setdiabetes(Diabetes);
+        analise.setColestrol(colestrol);
+        analise.setCreatina(creatina);
+        analise.setAcidoUrico(acidoUrico);
+        analise.setUreia(ureia);
+
+        try {
+            getContentResolver().insert(AMinhaSaudeContentProvider.ENDERECO_ANALISES,analise.getContentValues());
+
+            Toast.makeText(this, getString(R.string.Guardar), Toast.LENGTH_SHORT).show();
+            finish();
+        } catch (Exception e) {
+            Snackbar.make(
+                    textInputLayoutDia,
+                    getString(R.string.erro_guardar_tratamento),
+                    Snackbar.LENGTH_LONG)
+                    .show();
+
+            e.printStackTrace();
+        }
+
+    }
+    @Override
+    protected void onResume() {
+        getSupportLoaderManager().restartLoader(ID_CURSO_LOADER_ANALISES, null, this);
+
+        super.onResume();
+    }
+
+    @NonNull
+    @Override
+    public Loader<Cursor> onCreateLoader(int id, @Nullable Bundle args) {
+        androidx.loader.content.CursorLoader cursorLoader = new androidx.loader.content.CursorLoader(this, AMinhaSaudeContentProvider.ENDERECO_ANALISES, BdTabelaAnalises.TODAS_COLUNAS, null, null, BdTabelaAnalises.Dia
+        );
+
+        return cursorLoader;
+    }
+
+    @Override
+    public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
 
     }
 
-    /*public void ValidarResultadosInseridos() {
-        EditText editTextDia = (EditText) findViewById(R.id.editTextDataAnalises);
-        String diaAnalise = editTextDia.getText().toString();
-        int dias = Integer.parseInt(diaAnalise);
-        if (dias > 1) {
-            editTextDia.setError(getString(R.string.message_required));
-            editTextDia.requestFocus();
-            return;
-        }
-    }*/
+    @Override
+    public void onLoaderReset(@NonNull Loader<Cursor> loader) {
+
+    }
+
+
 }

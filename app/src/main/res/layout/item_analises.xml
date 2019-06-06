@@ -3,60 +3,72 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textViewMedicamento"
+        android:id="@+id/textViewDia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/medicamento_bruffen"
+        android:layout_marginTop="8dp"
+        android:text="Dia: 25/05/19"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewHora"
+        android:id="@+id/textViewDiabetes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/hora_de_come_o_15_45"
+        android:layout_marginTop="8dp"
+        android:text="Diabetes: 85.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewMedicamento" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDia" />
 
     <TextView
-        android:id="@+id/textViewHoraTomar"
+        android:id="@+id/textViewColestrol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/hora_a_tomar_6h"
+        android:layout_marginTop="8dp"
+        android:text="Colestrol: 100.15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHora" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDiabetes" />
 
     <TextView
-        android:id="@+id/textViewDias"
+        android:id="@+id/textViewCreatina"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/dias_5"
+        android:layout_marginTop="8dp"
+        android:text="Creatina: 50.9"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHoraTomar" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewColestrol" />
 
     <TextView
-        android:id="@+id/textViewDoenca"
+        android:id="@+id/textViewAcidoUrico"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/doen_a_gripe"
+        android:layout_marginTop="8dp"
+        android:text="Acido Urico: 12,02"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDias" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewCreatina" />
+
+    <TextView
+        android:id="@+id/textViewUreia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Ureia: 250,15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcidoUrico" />
 </androidx.constraintlayout.widget.ConstraintLayout>
