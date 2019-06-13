@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -82,14 +81,15 @@ public class VerConsultas extends AppCompatActivity implements LoaderManager.Loa
 
             return true;
         } else if (id == R.id.action_alterar) {
+            Intent intent = new Intent(this, EditarConsulta.class);
+            intent.putExtra(ID_CONSULTA, adaptadorConsulta.getConsultaSelecionado().getId());
+            startActivity(intent);
 
-
-            Toast.makeText(this, "Alterar", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_eliminar) {
-
-
-            Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, EliminarConsulta.class);
+            intent.putExtra(ID_CONSULTA, adaptadorConsulta.getConsultaSelecionado().getId());
+            startActivity(intent);
             return true;
         }
 

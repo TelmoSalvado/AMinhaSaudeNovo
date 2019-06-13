@@ -1,17 +1,24 @@
 package pt.ipg.aminhasaude;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.widget.Toast;
-
 public class EliminarConsulta extends AppCompatActivity {
+    private Uri enderecoConsultaApagar;
+
+    EditText editTextData= (EditText) findViewById(R.id.editText6);
+    EditText editTextHora = (EditText) findViewById(R.id.editText7);
+    EditText editTextLocal = (EditText) findViewById(R.id.editText8);
+    EditText editTextMotivo = (EditText) findViewById(R.id.editText9);
+    EditText editTextMedico = (EditText) findViewById(R.id.editText10);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,10 +27,43 @@ public class EliminarConsulta extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+        long idConsulta = intent.getLongExtra(VerConsultas.ID_CONSULTA,-1);
+
+        if(idConsulta == -1){
+            Toast.makeText(this, "Erro: não foi possivel apagar a Analise!", Toast.LENGTH_LONG ).show();
+            finish();
+            return;
+        }
+        enderecoConsultaApagar = Uri.withAppendedPath(AMinhaSaudeContentProvider.ENDERECO_CONSULTA, String.valueOf(idConsulta));
+
+        Cursor cursor = getContentResolver().query(enderecoConsultaApagar, BdTabelaConsulta.TODAS_COLUNAS, null, null, null);
+
+        if(!cursor.moveToNext()){
+            Toast.makeText(this,"Erro não foi possivel apagar a Consulta!", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Consulta consulta = Consulta.fromCursor(cursor);
+
+        editTextData.setText(consulta.getdia());
+        editTextHora.setText(consulta.getHora());
+        editTextLocal.setText(consulta.getlocal());
+        editTextMotivo.setText(consulta.getmotivo());
+        editTextMedico.setText(consulta.getMedico());
     }
     public void Eliminar(View view){
+        int consultaApagados = getContentResolver().delete(enderecoConsultaApagar, null, null);
+
+        if (consultaApagados == 1) {
+            Toast.makeText(this, getString(R.string.Eliminar), Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(this, "Erro: Não foi possível eliminar a Analises", Toast.LENGTH_LONG).show();
+        }
         Toast.makeText(this, getString(R.string.Eliminar), Toast.LENGTH_SHORT).show();
         finish();
     }
