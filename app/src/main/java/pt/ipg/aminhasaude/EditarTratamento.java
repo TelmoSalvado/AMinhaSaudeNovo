@@ -67,7 +67,7 @@ public class EditarTratamento extends AppCompatActivity implements LoaderManager
         }
         tratamento = Tratamento.fromCursor(cursor);
 
-        textInputLayoutDoenca.setText(tratamento.getMedicamento());
+        textInputLayoutDoenca.setText(tratamento.getDoenca());
         textInputLayoutMedicamento.setText(tratamento.getMedicamento());
         textInputLayoutHora.setText(tratamento.getHora());
         textInputLayoutHoraATomar.setText(tratamento.getHoraATomar());

@@ -21,6 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class VerAnalises extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
+    public static final String ID_ANALISES = "ID_ANALISES";
     private static final int ID_CURSO_LOADER_ANALISES = 0;
 
     private RecyclerView recyclerViewAnalises;
@@ -83,12 +84,16 @@ public class VerAnalises extends AppCompatActivity implements LoaderManager.Load
 
             return true;
         } else if (id == R.id.action_editar) {
-
+            Intent intent = new Intent(this, EditarAnalises.class);
+            intent.putExtra(ID_ANALISES, adaptadorAnalises.getAnaliseSelecionado().getId());
+            startActivity(intent);
 
             Toast.makeText(this, "Alterar", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.action_eliminar) {
-
+            Intent intent = new Intent(this, EliminarAnalises.class);
+            intent.putExtra(ID_ANALISES, adaptadorAnalises.getAnaliseSelecionado().getId());
+            startActivity(intent);
 
             Toast.makeText(this, "Eliminar", Toast.LENGTH_SHORT).show();
             return true;
