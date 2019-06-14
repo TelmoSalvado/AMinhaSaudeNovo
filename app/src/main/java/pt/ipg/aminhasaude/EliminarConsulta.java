@@ -14,11 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 public class EliminarConsulta extends AppCompatActivity {
     private Uri enderecoConsultaApagar;
 
-    EditText editTextData= (EditText) findViewById(R.id.editText6);
-    EditText editTextHora = (EditText) findViewById(R.id.editText7);
-    EditText editTextLocal = (EditText) findViewById(R.id.editText8);
-    EditText editTextMotivo = (EditText) findViewById(R.id.editText9);
-    EditText editTextMedico = (EditText) findViewById(R.id.editText10);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +22,18 @@ public class EliminarConsulta extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        EditText editTextData= (EditText) findViewById(R.id.editText6);
+        EditText editTextHora = (EditText) findViewById(R.id.editText7);
+        EditText editTextLocal = (EditText) findViewById(R.id.editText8);
+        EditText editTextMotivo = (EditText) findViewById(R.id.editText9);
+        EditText editTextMedico = (EditText) findViewById(R.id.editText10);
+
         Intent intent = getIntent();
         long idConsulta = intent.getLongExtra(VerConsultas.ID_CONSULTA,-1);
 
         if(idConsulta == -1){
-            Toast.makeText(this, "Erro: não foi possivel apagar a Analise!", Toast.LENGTH_LONG ).show();
+            Toast.makeText(this, "Erro: não foi possivel apagar a Consulta", Toast.LENGTH_LONG ).show();
             finish();
             return;
         }
@@ -62,7 +64,7 @@ public class EliminarConsulta extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.Eliminar), Toast.LENGTH_SHORT).show();
             finish();
         } else {
-            Toast.makeText(this, "Erro: Não foi possível eliminar a Analises", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Erro: Não foi possível eliminar a Consulta", Toast.LENGTH_LONG).show();
         }
         Toast.makeText(this, getString(R.string.Eliminar), Toast.LENGTH_SHORT).show();
         finish();
