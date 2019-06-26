@@ -48,22 +48,52 @@ public class Nova_Consulta extends AppCompatActivity implements LoaderManager.Lo
 
         String hora = textInputLayoutHora.getText().toString();
 
+        String horas[] = hora.split(":");
+
+        int Horas = Integer.parseInt(horas[0]);
+        int Minutos = Integer.parseInt(horas[1]);
+
         String local = textInputLayoutLocal.getText().toString();
 
 
         String motivo = textInputLayoutMotivo.getText().toString();
 
-
         String Medico = textInputLayoutMedico.getText().toString();
+
+        String[] dataSeparada = dia.split("/");
+
+        int Dia = Integer.parseInt(dataSeparada[0]);
+        int Mes = Integer.parseInt(dataSeparada[1]);
+        int Ano = Integer.parseInt(dataSeparada[2]);
 
         if (dia.length() != 10 || dia.charAt(2) != '/' || dia.charAt(5) != '/') {
             textInputLayoutDia.setError(getString(R.string.Validar_data));
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if(Dia > 30 && (Mes == 6 || Mes == 4 || Mes == 9 || Mes == 11)  ) {
+            textInputLayoutDia.setError("Error na Data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if (Dia > 29 && Mes == 2){
+            textInputLayoutDia.setError("Erro na data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if(Dia <= 0 || Dia > 31 || Mes <= 0 || Mes > 12 || Ano < 2019){
+            textInputLayoutDia.setError("Erro na data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if (dia.trim().length()==0){
+            textInputLayoutDia.setError("Erroo");
             textInputLayoutDia.requestFocus();
             return;
         }
 
         if (hora.length() != 5 || hora.charAt(2) != ':' ) {
             textInputLayoutHora.setError(getString(R.string.validar_hora));
+            textInputLayoutHora.requestFocus();
+            return;
+        }else if( Horas < 0 || Horas >24 || Minutos <0 || Minutos > 60){
+            textInputLayoutHora.setError("Hora Inválida");
             textInputLayoutHora.requestFocus();
             return;
         }

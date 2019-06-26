@@ -98,6 +98,11 @@ public class EditarAnalises extends AppCompatActivity implements LoaderManager.L
     }
     public void ValidarDados() {
         String diaAnalise = textInputLayoutDia.getText().toString();
+        String[] dataSeparada = diaAnalise.split("/");
+
+        int Dia = Integer.parseInt(dataSeparada[0]);
+        int Mes = Integer.parseInt(dataSeparada[1]);
+        int Ano = Integer.parseInt(dataSeparada[2]);
 
         String diabetes = textInputLayoutAcucar.getText().toString();
         double Diabetes;
@@ -118,7 +123,24 @@ public class EditarAnalises extends AppCompatActivity implements LoaderManager.L
             textInputLayoutDia.setError(getString(R.string.Validar_data));
             textInputLayoutDia.requestFocus();
             return;
+        }else if(Dia > 30 && (Mes == 6 || Mes == 4 || Mes == 9 || Mes == 11)  ) {
+            textInputLayoutDia.setError("Error na Data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if (Dia > 29 && Mes == 2){
+            textInputLayoutDia.setError("Erro na data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if(Dia <= 0 || Dia > 31 || Mes <= 0 || Mes > 12 || Ano < 2019){
+            textInputLayoutDia.setError("Erro na data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if (diaAnalise.trim().length()==0){
+            textInputLayoutDia.setError("Erro");
+            textInputLayoutDia.requestFocus();
+            return;
         }
+
         if (diabetes.trim().length() == 0) {
             textInputLayoutAcucar.setError(getString(R.string.message_required));
             textInputLayoutAcucar.requestFocus();

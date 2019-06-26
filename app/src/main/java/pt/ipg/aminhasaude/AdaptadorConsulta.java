@@ -89,7 +89,7 @@ public class AdaptadorConsulta extends RecyclerView.Adapter<AdaptadorConsulta.Vi
         }
 
         private void seleciona() {
-            itemView.setBackgroundResource(android.R.color.holo_red_dark);
+            itemView.setBackgroundResource(android.R.color.holo_blue_light);
         }
 
         @Override

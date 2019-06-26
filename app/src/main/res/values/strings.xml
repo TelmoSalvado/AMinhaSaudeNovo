@@ -84,5 +84,7 @@
     <string name="action_eliminar">action_eliminar</string>
     <string name="action_inserir">action_inserir</string>
     <string name="action_alterar">action_alterar</string>
-    <string name="erro_guardar_tratamento">Erro: Não foi possível guardar o tratamento</string>
+    <string name="erro_guardar_tratamento">Erro: Não foi possível guardar </string>
+    <string name="Horas_invalidas">Hora Inválida</string>
+    <string name="Data_invalida">Data Inválida</string>
 </resources>

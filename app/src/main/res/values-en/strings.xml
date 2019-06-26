@@ -82,4 +82,10 @@
     <string name="hora_a_tomar_6h">Hora a Tomar: 6h</string>
     <string name="dias_5">Dias: 5</string>
     <string name="doen_a_gripe">Doença: Gripe</string>
+    <string name="action_alterar">Edit</string>
+    <string name="action_eliminar">Delete</string>
+    <string name="action_inserir">Insert</string>
+    <string name="erro_guardar_tratamento">Impossible to Save</string>
+    <string name="Data_invalida">Invaild Date</string>
+    <string name="Horas_invalidas">Invaild Time</string>
 </resources>

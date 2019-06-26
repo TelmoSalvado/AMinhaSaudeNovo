@@ -114,7 +114,7 @@ public class VerAnalises extends AppCompatActivity implements LoaderManager.Load
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-        Snackbar.make(recyclerViewAnalises,"Qualquer coisa:" +data.getCount(),Snackbar.LENGTH_INDEFINITE).show();
+        Snackbar.make(recyclerViewAnalises,"Guardados:" +data.getCount(),Snackbar.LENGTH_INDEFINITE).show();
 
 
         adaptadorAnalises.setCursor(data);

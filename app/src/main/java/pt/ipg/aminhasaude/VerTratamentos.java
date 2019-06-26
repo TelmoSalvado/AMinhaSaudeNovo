@@ -114,7 +114,7 @@ public class VerTratamentos extends AppCompatActivity implements LoaderManager.L
     }
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-        Snackbar.make(recyclerViewTratamentos,"Qualquer coisa:" +data.getCount(),Snackbar.LENGTH_INDEFINITE).show();
+        Snackbar.make(recyclerViewTratamentos,"Guardados:" +data.getCount(),Snackbar.LENGTH_INDEFINITE).show();
 
 
         adaptadorTratamentos.setCursor(data);

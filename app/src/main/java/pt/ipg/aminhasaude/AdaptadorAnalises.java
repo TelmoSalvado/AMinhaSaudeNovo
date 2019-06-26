@@ -95,7 +95,7 @@ public class AdaptadorAnalises extends RecyclerView.Adapter<AdaptadorAnalises.Vi
         }
 
         private void seleciona() {
-            itemView.setBackgroundResource(android.R.color.holo_red_dark);
+            itemView.setBackgroundResource(android.R.color.holo_blue_light);
         }
         @Override
         public void onClick(View v) {

@@ -108,7 +108,7 @@ public class VerConsultas extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoadFinished(@NonNull Loader<Cursor> loader, Cursor data) {
-        Snackbar.make(recyclerViewConsulta,"Qualquer coisa:" +data.getCount(),Snackbar.LENGTH_INDEFINITE).show();
+        Snackbar.make(recyclerViewConsulta,"Guardados:" +data.getCount(),Snackbar.LENGTH_INDEFINITE).show();
 
 
         adaptadorConsulta.setCursor(data);

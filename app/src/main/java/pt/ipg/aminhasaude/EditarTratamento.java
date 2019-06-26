@@ -86,9 +86,15 @@ public class EditarTratamento extends AppCompatActivity implements LoaderManager
 
 
         String hora = textInputLayoutHora.getText().toString();
+        String horas[] = hora.split(":");
 
-
+        int Hora = Integer.parseInt(horas[0]);
+        int Minutos = Integer.parseInt(horas[1]);
         String horaatomar = textInputLayoutHoraATomar.getText().toString();
+        String horasatomar[] = hora.split(":");
+
+        int Horaatomar = Integer.parseInt(horas[0]);
+        int Minutosatomar = Integer.parseInt(horas[1]);
 
         String dias = textInputLayoutDias.getText().toString();
         int dia;
@@ -110,9 +116,17 @@ public class EditarTratamento extends AppCompatActivity implements LoaderManager
             textInputLayoutHora.setError(getString(R.string.validar_hora));
             textInputLayoutHora.requestFocus();
             return;
+        }else if( Hora < 0 || Hora >24 || Minutos <0 || Minutos > 60){
+            textInputLayoutHora.setError(getString(R.string.Horas_invalidas));
+            textInputLayoutHora.requestFocus();
+            return;
         }
         if (horaatomar.length() != 5 || horaatomar.charAt(2) != ':' ) {
             textInputLayoutHoraATomar.setError(getString(R.string.validar_hora));
+            textInputLayoutHoraATomar.requestFocus();
+            return;
+        }else if( Horaatomar < 0 || Horaatomar >24 || Minutosatomar <0 || Minutosatomar > 60){
+            textInputLayoutHora.setError(getString(R.string.Horas_invalidas));
             textInputLayoutHoraATomar.requestFocus();
             return;
         }
@@ -124,7 +138,7 @@ public class EditarTratamento extends AppCompatActivity implements LoaderManager
         try{
             dia = Integer.parseInt(dias);
         }catch (NumberFormatException e){
-            textInputLayoutDias.setError("Dia Invalido!");
+            textInputLayoutDias.setError(getString(R.string.erro_guardar_tratamento));
             return;
         }
         Tratamento tratamento = new Tratamento();

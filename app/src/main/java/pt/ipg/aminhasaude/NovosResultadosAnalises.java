@@ -54,6 +54,12 @@ public class NovosResultadosAnalises extends AppCompatActivity implements Loader
 
     public void Guardar(View view) {
         String diaAnalise = textInputLayoutDia.getText().toString();
+        String[] dataSeparada = diaAnalise.split("/");
+
+        int Dia = Integer.parseInt(dataSeparada[0]);
+        int Mes = Integer.parseInt(dataSeparada[1]);
+        int Ano = Integer.parseInt(dataSeparada[2]);
+
 
         String diabetes = textInputLayoutAcucar.getText().toString();
         double Diabetes;
@@ -67,11 +73,28 @@ public class NovosResultadosAnalises extends AppCompatActivity implements Loader
         String AcidoUrico = textInputLayoutAcidoUrico.getText().toString();
         double acidoUrico;
 
+
         String Ureia = textInputLayoutUreia.getText().toString();
         double ureia;
 
         if (diaAnalise.length() != 10 || diaAnalise.charAt(2) != '/' || diaAnalise.charAt(5) != '/') {
             textInputLayoutDia.setError(getString(R.string.Validar_data));
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if(Dia > 30 && (Mes == 6 || Mes == 4 || Mes == 9 || Mes == 11)  ) {
+            textInputLayoutDia.setError("Error na Data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if (Dia > 29 && Mes == 2){
+            textInputLayoutDia.setError("Erro na data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if(Dia <= 0 || Dia > 31 || Mes <= 0 || Mes > 12 || Ano < 2019){
+            textInputLayoutDia.setError("Erro na data");
+            textInputLayoutDia.requestFocus();
+            return;
+        }else if (diaAnalise.trim().length()==0){
+            textInputLayoutDia.setError("Erroo");
             textInputLayoutDia.requestFocus();
             return;
         }
