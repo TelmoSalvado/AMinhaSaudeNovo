@@ -120,6 +120,7 @@ public class EditarTratamento extends AppCompatActivity implements LoaderManager
             return;
         }
 
+
         int dia;
         String dias = textInputLayoutDias.getText().toString();
         String doenca = textInputLayoutDoenca.getText().toString();
