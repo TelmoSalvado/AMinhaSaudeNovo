@@ -49,15 +49,42 @@ public class Novo_Tratamento extends AppCompatActivity implements LoaderManager.
         String medicamento = textInputLayoutMedicamento.getText().toString();
 
         String hora = textInputLayoutHora.getText().toString();
-        String horas[] = hora.split(":");
 
+
+        if (hora.length() != 5 || hora.charAt(2) != ':' ) {
+            textInputLayoutHora.setError(getString(R.string.validar_hora));
+            textInputLayoutHora.requestFocus();
+            return;
+
+        }
+        String horas[] = hora.split(":");
         int Hora = Integer.parseInt(horas[0]);
         int Minutos = Integer.parseInt(horas[1]);
+        if( Hora < 0 || Hora >24 || Minutos <0 || Minutos > 60){
+            textInputLayoutHora.setError("Hora Inválida");
+            textInputLayoutHora.requestFocus();
+            return;
+        }
+
+
+
         String horaatomar = textInputLayoutHoraATomar.getText().toString();
+      if (horaatomar.length() != 5 || horaatomar.charAt(2) != ':' )
+
+    {
+        textInputLayoutHoraATomar.setError(getString(R.string.validar_hora));
+        textInputLayoutHoraATomar.requestFocus();
+        return;
+    }
         String horasatomar[] = hora.split(":");
 
         int Horaatomar = Integer.parseInt(horas[0]);
         int Minutosatomar = Integer.parseInt(horas[1]);
+         if( Horaatomar < 0 || Horaatomar >24 || Minutosatomar <0 || Minutosatomar > 60){
+        textInputLayoutHoraATomar.setError("Hora Inválida");
+        textInputLayoutHoraATomar.requestFocus();
+        return;
+    }
         int dia;
 
         String dias = textInputLayoutDias.getText().toString();
@@ -75,24 +102,7 @@ public class Novo_Tratamento extends AppCompatActivity implements LoaderManager.
             textInputLayoutMedicamento.requestFocus();
             return;
         }
-        if (hora.length() != 5 || hora.charAt(2) != ':' ) {
-            textInputLayoutHora.setError(getString(R.string.validar_hora));
-            textInputLayoutHora.requestFocus();
-            return;
-        }else if( Hora < 0 || Hora >24 || Minutos <0 || Minutos > 60){
-            textInputLayoutHora.setError("Hora Inválida");
-            textInputLayoutHora.requestFocus();
-            return;
-        }
-        if (horaatomar.length() != 5 || horaatomar.charAt(2) != ':' ) {
-            textInputLayoutHoraATomar.setError(getString(R.string.validar_hora));
-            textInputLayoutHoraATomar.requestFocus();
-            return;
-        }else if( Horaatomar < 0 || Horaatomar >24 || Minutosatomar <0 || Minutosatomar > 60){
-            textInputLayoutHoraATomar.setError("Hora Inválida");
-            textInputLayoutHoraATomar.requestFocus();
-            return;
-        }
+
         if ((dias.trim().length() == 0) )  {
             textInputLayoutDias.setError(getString(R.string.message_required));
             textInputLayoutDias.requestFocus();

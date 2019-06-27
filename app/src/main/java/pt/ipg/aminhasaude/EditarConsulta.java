@@ -76,32 +76,22 @@ public class EditarConsulta extends AppCompatActivity implements LoaderManager.L
     }
     public void Guardar(View view){
         String dia = textInputLayoutDia.getText().toString();
-
-
-        String hora = textInputLayoutHora.getText().toString();
-        String horas[] = hora.split(":");
-
-        int Hora = Integer.parseInt(horas[0]);
-        int Minutos = Integer.parseInt(horas[1]);
-
-        String local = textInputLayoutLocal.getText().toString();
-
-
-        String motivo = textInputLayoutMotivo.getText().toString();
-
-        String Medico = textInputLayoutMedico.getText().toString();
-
+        if(dia.trim().length() == 0){
+            textInputLayoutDia.setError(getString(R.string.message_required));
+            textInputLayoutDia.requestFocus();
+            return;
+        }else  if (dia.length() != 10 || dia.charAt(2) != '/' || dia.charAt(5) != '/') {
+            textInputLayoutDia.setError(getString(R.string.Validar_data));
+            textInputLayoutDia.requestFocus();
+            return;
+        }
         String[] dataSeparada = dia.split("/");
 
         int Dia = Integer.parseInt(dataSeparada[0]);
         int Mes = Integer.parseInt(dataSeparada[1]);
         int Ano = Integer.parseInt(dataSeparada[2]);
+        if(Dia > 30 && (Mes == 6 || Mes == 4 || Mes == 9 || Mes == 11)  ) {
 
-        if (dia.length() != 10 || dia.charAt(2) != '/' || dia.charAt(5) != '/') {
-            textInputLayoutDia.setError(getString(R.string.Validar_data));
-            textInputLayoutDia.requestFocus();
-            return;
-        }else if(Dia > 30 && (Mes == 6 || Mes == 4 || Mes == 9 || Mes == 11)  ) {
             textInputLayoutDia.setError("Error na Data");
             textInputLayoutDia.requestFocus();
             return;
@@ -113,21 +103,35 @@ public class EditarConsulta extends AppCompatActivity implements LoaderManager.L
             textInputLayoutDia.setError("Erro na data");
             textInputLayoutDia.requestFocus();
             return;
-        }else if (dia.trim().length()==0){
-            textInputLayoutDia.setError("Erroo");
-            textInputLayoutDia.requestFocus();
-            return;
         }
 
-        if (hora.length() != 5 || hora.charAt(2) != ':' ) {
+        String hora = textInputLayoutHora.getText().toString();
+
+        if (hora.trim().length() == 0){
+            textInputLayoutHora.setError(getString(R.string.message_required));
+            textInputLayoutHora.requestFocus();
+            return;
+        }else if (hora.length() != 5 || hora.charAt(2) != ':' ) {
             textInputLayoutHora.setError(getString(R.string.validar_hora));
             textInputLayoutHora.requestFocus();
             return;
-        }else if( Hora < 0 || Hora >24 || Minutos <0 || Minutos > 60){
+        }
+        String horas[] = hora.split(":");
+
+        int Horasdaconsulta = Integer.parseInt(horas[0]);
+        int Minutos = Integer.parseInt(horas[1]);
+        if( Horasdaconsulta < 0 || Horasdaconsulta >24 || Minutos <0 || Minutos > 60){
             textInputLayoutHora.setError("Hora Inválida");
             textInputLayoutHora.requestFocus();
             return;
         }
+        String local = textInputLayoutLocal.getText().toString();
+
+
+        String motivo = textInputLayoutMotivo.getText().toString();
+
+        String Medico = textInputLayoutMedico.getText().toString();
+
         if (local.trim().length()  == 0) {
             textInputLayoutLocal.setError(getString(R.string.message_required));
             textInputLayoutLocal.requestFocus();
