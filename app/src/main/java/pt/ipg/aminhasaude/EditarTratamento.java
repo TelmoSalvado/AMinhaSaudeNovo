@@ -119,6 +119,7 @@ public class EditarTratamento extends AppCompatActivity implements LoaderManager
             textInputLayoutHoraATomar.requestFocus();
             return;
         }
+
         int dia;
         String dias = textInputLayoutDias.getText().toString();
         String doenca = textInputLayoutDoenca.getText().toString();
